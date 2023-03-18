@@ -1,0 +1,124 @@
+using System;
+using System.Collections.Generic;
+using System.Security.Principal;
+
+namespace project_5
+{
+    class Program
+    {
+        public class Banker: IComparable<Banker>
+        {
+            public string FIO;
+            public int BankNumber;
+            public double Sum;
+            public int OpeningDate;
+            public Banker(string FIO,int BankNumber, double sum, int OpeningDate)
+            {
+                this.FIO = FIO;
+                this.BankNumber = BankNumber;
+                this.OpeningDate = OpeningDate;
+                this.Sum= sum;
+            }
+
+            public override string ToString() 
+            {
+                return $"FIO -{FIO}, Number -{BankNumber}, Date-{OpeningDate}";
+            }
+            
+            public int CompareTo(Banker b)
+            {
+                if (b == null)
+                {
+                    return 1;
+                }
+
+                if (this.Sum > b.Sum)
+                {
+                    return 1;
+                }
+                else if (this.Sum < b.Sum)
+                {
+                    return -1;
+                }
+                else 
+                {
+                    return 0 ;
+                }
+                
+
+            }
+        }
+        public static List<Banker> Sort(string path)
+        {
+            List<Banker> list = new List<Banker>();
+            StreamReader reader = new StreamReader(path);
+            string l;
+            while((l = reader.ReadLine()) != null)
+            {
+                string[] a = l.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                list.Add(new Banker(a[0], Convert.ToInt32(a[1]), Convert.ToDouble(a[2]), Convert.ToInt32(a[3])));
+            }
+            List<Banker> newl = new List<Banker>();
+            foreach (var item in list)
+            {
+                if (item.OpeningDate == 2022)
+                {
+                    newl.Add(item);
+                }
+            }
+            return newl;
+
+        }
+       
+        public static Banker[] SortBySum(List<Banker> list)
+        {
+
+            Banker[] bs = list.ToArray();
+            for (int i = 0; i < bs.Length; i++)
+            {
+                bool sorted = false;
+
+                while (!sorted)
+                {
+                    sorted = true;
+
+
+                    if (bs[i].CompareTo(bs[i + 1]) == -1)
+                    {
+                        sorted = false;
+                        Banker buff = bs[0];
+                        bs[i] = bs[i + 1];
+                        bs[i + 1] = buff;
+                    }
+
+                }
+
+
+            }
+            return bs;
+
+
+        }
+        public static void Write(string path2, Banker[] arr)
+        {
+            StreamWriter sw = new StreamWriter(path2);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                sw.WriteLine(arr[i].ToString());
+            }
+            sw.Close();
+        }
+
+        public static void Main(String[] args)
+        {
+            string path1 = @"E:\files\input.txt";
+            string path2 = @"E:\files\otput.txt";
+
+
+            List<Banker> list = Sort(path1);
+            Banker[] bs = SortBySum(list);
+           
+        }
+       
+    }
+}

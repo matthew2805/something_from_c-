@@ -1,0 +1,15 @@
+D:\C#\project 5\roject 5  queue\bin\Debug\net6.0\roject 5  queue.exe
+D:\C#\project 5\roject 5  queue\bin\Debug\net6.0\roject 5  queue.deps.json
+D:\C#\project 5\roject 5  queue\bin\Debug\net6.0\roject 5  queue.runtimeconfig.json
+D:\C#\project 5\roject 5  queue\bin\Debug\net6.0\roject 5  queue.dll
+D:\C#\project 5\roject 5  queue\bin\Debug\net6.0\roject 5  queue.pdb
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.csproj.AssemblyReference.cache
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.AssemblyInfoInputs.cache
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.AssemblyInfo.cs
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.csproj.CoreCompileInputs.cache
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.dll
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\refint\roject 5  queue.dll
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.pdb
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\roject 5  queue.genruntimeconfig.cache
+D:\C#\project 5\roject 5  queue\obj\Debug\net6.0\ref\roject 5  queue.dll

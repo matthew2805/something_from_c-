@@ -1,0 +1,100 @@
+using System.Text;
+using System.Text.RegularExpressions;
+
+namespace Collections.Dictionary;
+
+public class TextAnalyzer
+{
+    public static void AnalyzeStrings()
+    {
+        var text = GetText("D:/string.txt");
+        var dict = CreateDictionary(text);
+
+        var textLines = text.Trim().Split('\n');
+        var wordsLineLocation = new List<string>();
+        var sb = new StringBuilder();
+        foreach (var k in dict.Keys)
+        {
+            var i = 0;
+            while (i < textLines.Length)
+            {
+                if (textLines[i].Split(' ').Contains(k)) sb.Append(i + 1).Append(" ");
+                i++;
+            }
+
+            wordsLineLocation.Add(sb.ToString());
+            sb.Clear();
+        }
+
+        dict.Select((kv, n) => $"{kv.Key.PadRight(15, '.')}{kv.Value}: {wordsLineLocation[n]}").ToList()
+            .ForEach(Console.WriteLine);
+    }
+
+    public static void AnalyzePages()
+    {
+        var text = GetText("/home/samurai/code/Collections/Collections/Dictionary/page.txt");
+        var dict = CreateDictionary(text);
+
+        Console.WriteLine("Enter length of page: ");
+        var numberOfLines = Convert.ToInt32(Console.ReadLine());
+
+        var textLines = text.Trim().Split('\n');
+        var wordsPageLocation = new List<string>();
+        var sb = new StringBuilder();
+        foreach (var s in dict.Keys)
+        {
+            var i = 1;
+            var j = 0;
+            var k = 0;
+            while (j < textLines.Length)
+            {
+                if (k == numberOfLines)
+                {
+                    i++;
+                    k = 0;
+                }
+
+                if (textLines[j].Trim().Split(' ').Contains(s)) sb.Append(i + " ");
+                j++;
+                k++;
+            }
+
+            wordsPageLocation.Add(string.Join(' ', sb.ToString().Split().Distinct()));
+            sb.Clear();
+        }
+        
+        var t = 0;
+        foreach (var g in dict.GroupBy(i => i.Key[0]))
+        {
+            Console.WriteLine(char.ToUpper(g.Key));
+            g.Select(kv => $"{kv.Key.PadRight(15, '.')}{kv.Value}: {wordsPageLocation[t++]}")
+                .ToList()
+                .ForEach(Console.WriteLine);
+        }
+    }
+
+    private static string GetText(string path)
+    {
+        var rawText = RetrieveText(path);
+        return rawText
+            .Select(str => Regex.Replace(str.ToLower(), "[^a-zA-Z0-9]+", " ", RegexOptions.Compiled))
+            .Aggregate("", (current, newStr) => current + (newStr + '\n'));
+    }
+
+
+    private static Dictionary<string, int> CreateDictionary(string oneLineText)
+    {
+        return oneLineText.Trim().Split(' ', '\n')
+            .OrderBy(x => x)
+            .GroupBy(s => s)
+            .Where(g => !string.IsNullOrEmpty(g.Key))
+            .ToDictionary(g => g.Key, g => g.Count());
+    }
+
+    private static IEnumerable<string> RetrieveText(string path)
+    {
+        using StreamReader sr = new(path);
+        var source = sr.ReadToEnd().Split('\n').ToList();
+        return source;
+    }
+}

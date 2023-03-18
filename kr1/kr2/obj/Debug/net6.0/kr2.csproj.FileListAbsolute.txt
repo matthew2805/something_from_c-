@@ -1,0 +1,15 @@
+D:\C#\kr1\kr2\bin\Debug\net6.0\kr2.exe
+D:\C#\kr1\kr2\bin\Debug\net6.0\kr2.deps.json
+D:\C#\kr1\kr2\bin\Debug\net6.0\kr2.runtimeconfig.json
+D:\C#\kr1\kr2\bin\Debug\net6.0\kr2.dll
+D:\C#\kr1\kr2\bin\Debug\net6.0\kr2.pdb
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.csproj.AssemblyReference.cache
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.AssemblyInfoInputs.cache
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.AssemblyInfo.cs
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.csproj.CoreCompileInputs.cache
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.dll
+D:\C#\kr1\kr2\obj\Debug\net6.0\refint\kr2.dll
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.pdb
+D:\C#\kr1\kr2\obj\Debug\net6.0\kr2.genruntimeconfig.cache
+D:\C#\kr1\kr2\obj\Debug\net6.0\ref\kr2.dll

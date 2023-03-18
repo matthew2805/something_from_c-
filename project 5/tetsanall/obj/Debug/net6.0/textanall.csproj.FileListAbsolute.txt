@@ -1,0 +1,15 @@
+D:\C#\project 5\tetsanall\bin\Debug\net6.0\textanall.exe
+D:\C#\project 5\tetsanall\bin\Debug\net6.0\textanall.deps.json
+D:\C#\project 5\tetsanall\bin\Debug\net6.0\textanall.runtimeconfig.json
+D:\C#\project 5\tetsanall\bin\Debug\net6.0\textanall.dll
+D:\C#\project 5\tetsanall\bin\Debug\net6.0\textanall.pdb
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.csproj.AssemblyReference.cache
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.GeneratedMSBuildEditorConfig.editorconfig
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.AssemblyInfoInputs.cache
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.AssemblyInfo.cs
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.csproj.CoreCompileInputs.cache
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.dll
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\refint\textanall.dll
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.pdb
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\textanall.genruntimeconfig.cache
+D:\C#\project 5\tetsanall\obj\Debug\net6.0\ref\textanall.dll

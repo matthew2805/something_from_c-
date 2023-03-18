@@ -1,0 +1,131 @@
+using System.Collections;
+using System.Linq;
+using System;
+using System.Collections;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
+
+namespace hashcodeee
+{
+    internal class Program
+    {
+        public static void AddToDisk(Hashtable disk)
+        {
+
+            Console.WriteLine("сколько песен добавить");
+            int n = int.Parse(Console.ReadLine());
+
+            int l = (disk.Count + 1) + n;
+            for (int i = disk.Count + 1; i < l; i++)
+            {
+                Console.WriteLine("write the name of the song");
+                string name = Console.ReadLine();
+                disk.Add(i, name);
+
+            }
+        }
+        public static void Main(string[] args)
+        {
+            Hashtable CD_catalog = new Hashtable();
+
+
+            try
+            {
+                bool ison = true;
+                while (ison)
+                {
+                    Console.WriteLine("что хотите сделать:\n1- добавить диск\n2-удалить диск\n3-добавить песни в диск\n4- удалить песню из диска\n5-посмотерть диск\n6- посмотреть каталог");
+                    int vattodo = int.Parse(Console.ReadLine());
+                    switch (vattodo)
+                    {
+                        case 1:
+                            Console.WriteLine("выберите имя диска");
+                            String nameofdisk = Console.ReadLine();
+                            Hashtable disk = new Hashtable();
+                            AddToDisk(disk);
+                            CD_catalog.Add(nameofdisk, disk);
+                            break;
+                        case 2:
+                            Console.WriteLine("выберите имя диска");
+                            string nametodel = Console.ReadLine();
+                            CD_catalog.Remove(nametodel);
+                            break;
+                        case 3:
+                            Console.WriteLine("выберите имя диска");
+                            string nametoadd = Console.ReadLine();
+                            Hashtable disktoadd = (Hashtable)CD_catalog[nametoadd];
+                            AddToDisk(disktoadd);
+                            CD_catalog[nametoadd] = disktoadd;
+                            break;
+                        case 4:
+                            Console.WriteLine("выберите имя диска");
+                            string nametodell = Console.ReadLine();
+                            Console.WriteLine("выберите НОМЕР песни");
+                            int songtodell = int.Parse(Console.ReadLine());
+                            Hashtable disktodell = (Hashtable)CD_catalog[nametodell];
+                            disktodell.Remove(songtodell);
+                            CD_catalog[nametodell] = disktodell;
+                            break;
+                        case 5:
+                            Console.WriteLine("выберите имя диска");
+                            string nametoview = Console.ReadLine();
+
+                            Hashtable disktoview = (Hashtable)CD_catalog[nametoview];
+
+                            ICollection keystoview = disktoview.Keys;
+                            int[] sortedkeytoview = new int[keystoview.Count];
+                            keystoview.CopyTo(sortedkeytoview, 0);
+                            Array.Sort(sortedkeytoview);
+                            foreach (var item in sortedkeytoview)
+                            {
+                                Console.Write(item + "---");
+                                Console.Write(disktoview[item]);
+                                Console.WriteLine();
+                            }
+                            break;
+                        case 6:
+                            Hashtable NCD_catalog = (Hashtable)CD_catalog.Clone();
+                            ICollection cdkeys = NCD_catalog.Keys;
+                            foreach (var k in cdkeys)
+                            {
+                                Console.WriteLine("диск:" + k + ":");
+
+
+                                ICollection valueskeys = cdvalues.Keys;
+                                int[] sortedkeys = new int[valueskeys.Count];
+                                valueskeys.CopyTo(sortedkeys, 0);
+                                Array.Sort(sortedkeys);
+
+                                foreach (var valuek in sortedkeys)
+                                {
+                                    Console.WriteLine(valuek + "---" + cdvalues[valuek]);
+                                }
+                            }
+                            break;
+
+
+
+                    }
+                    Console.WriteLine("CONTINUE - 1/ END 2");
+                    if ((Console.ReadLine()).Equals("2"))
+                    {
+                        ison = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+
+
+        }
+
+    }
+
+
+
+}
